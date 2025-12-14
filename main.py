@@ -30,10 +30,11 @@ def get_weather (message):
     weather = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}&units=metric')
     if weather.status_code == 200:
         data = json.loads(weather.text)
-        bot.reply_to(message, f" На данный момент температура по °C в этом городе: {data["main"]["temp"]}")
+        bot.reply_to(message, f  'На данный момент температура по °C в этом городе: {data["main"]["temp"]}')
 
     else:
         bot.reply_to(message, f'Город указан неверно!')
 
 # Команда позволяющая боту работать бесконечно
+
 bot.polling(none_stop=True)
